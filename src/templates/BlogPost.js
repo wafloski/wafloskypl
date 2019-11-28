@@ -18,21 +18,24 @@ const BlogPostTemplate = ({ data }) => (
 
 export default BlogPostTemplate
 export const query = graphql`
-  query {
-    allWordpressPost {
-      edges {
-        node {
-          featured_media {
-            localFile {
-              childImageSharp {
-                sizes(maxWidth: 600) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
+  query($id: Int!) {
+    wordpressPost(wordpress_id: { eq: $id }) {
+      title
+      content
+      excerpt
+      date(formatString: "MMMM DD, YYYY")
+      author {
+        name
+      }
+      featured_media {
+        localFile {
+          childImageSharp {
+            sizes(maxWidth: 1200) {
+              ...GatsbyImageSharpSizes
             }
           }
         }
       }
     }
   }
-`
+`;

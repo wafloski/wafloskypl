@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         // I have created a dummy site for us to use with the plugins we discussed
-        baseUrl: "www.wafloski.nazwa.pl/wafloskypl/",
+        baseUrl: "www.wafloski.nazwa.pl/waflosky-pl/",
         protocol: "http",
         hostingWPCOM: false,
         // We will be using some advanced custom fields
@@ -40,7 +40,7 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://www.wafloski.nazwa.pl/wafloskypl/",
+          sourceUrl: "http://www.wafloski.nazwa.pl/waflosky-pl/",
           replacementUrl: "https://localhost:8000",
         },
         // Set how many simultaneous requests are sent at once.
@@ -52,9 +52,7 @@ module.exports = {
           "**/media",
           "**/tags",
           "**/taxonomies",
-          "**/users",
-          "**/*/*/menus",
-          "**/*/*/menu-locations"
+          "**/users"
         ],
         excludedRoutes: [],
         normalizer: function({ entities }) {
