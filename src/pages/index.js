@@ -7,10 +7,10 @@ import '../components/styles.css'
 
 const Pictures = ({ data }) => {
   const images = data.allWordpressPost.edges.map(post => (
-    <div style={{ padding: "0", marginBottom: "20px", border: "1px solid #ccc" }} className="card">
+    <div style={{ padding: "0", marginBottom: "10px" }} className="card">
       <Link to={`/post/${post.node.slug}`} style={{ color: "black", textDecoration: "none" }}>
         <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title}
-             style={{ width: "100%", marginRight: 20 }}/>
+             style={{ width: "100%" }}/>
       </Link>
     </div>
   ))
