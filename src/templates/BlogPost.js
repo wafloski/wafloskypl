@@ -14,9 +14,7 @@ const BlogPostTemplate = ({ data }) => (
     <Img
       sizes={data.wordpressPost.featured_media.localFile.childImageSharp.sizes}
       alt={data.wordpressPost.title}
-      style={{ maxHeight: 900 }}
     />
-    <h1>{data.wordpressPost.title}</h1>
   </Layout>
 );
 
@@ -39,7 +37,7 @@ export const query = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            sizes(maxWidth: 1200) {
+            sizes(maxWidth: 1920) {
               ...GatsbyImageSharpSizes
             }
           }

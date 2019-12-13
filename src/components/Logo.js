@@ -1,6 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import styled from 'styled-components';
+
+const StyledLogo = styled(Img)`
+  width: 200px;
+  height: 54px;
+`;
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -18,15 +24,15 @@ const Logo = () => {
     query {
       placeholderImage: file(relativePath: { eq: "logo_waflosky.jpg" }) {
         childImageSharp {
-          fixed(height: 80) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 450) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `);
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
+  return <StyledLogo fluid={data.placeholderImage.childImageSharp.fluid} />;
 };
 
 export default Logo;
