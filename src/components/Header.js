@@ -1,17 +1,18 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import Logo from './logo';
+import styled from 'styled-components';
+import Logo from './Logo';
 
-const LogoStyles = {
-  padding: 10,
-  display: 'block',
-};
+const StyledLink = styled(Link)`
+  padding: 2rem 3rem;
+  display: block;
+`;
 
 const Header = () => (
   <header>
-    <Link style={LogoStyles} to="/">
+    <StyledLink to="/">
       <Logo />
-    </Link>
+    </StyledLink>
   </header>
 );
 

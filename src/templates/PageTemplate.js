@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
 const PageTemplate = ({ data }) => (
@@ -11,7 +11,7 @@ const PageTemplate = ({ data }) => (
       description={data.wordpressPage.excerpt}
     />
     <h1>{data.wordpressPage.title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+    <div>{data.wordpressPage.content }</div>
   </Layout>
 );
 
