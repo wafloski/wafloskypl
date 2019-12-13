@@ -1,18 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
 const PageTemplate = ({ data }) => (
-  <Layout>
+  <>
     <SEO
       title={data.wordpressPage.title}
       description={data.wordpressPage.excerpt}
     />
     <h1>{data.wordpressPage.title}</h1>
     <div>{data.wordpressPage.content }</div>
-  </Layout>
+  </>
 );
 
 PageTemplate.propTypes = {

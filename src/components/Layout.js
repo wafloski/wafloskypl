@@ -9,11 +9,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalStyle from '../theme/GlobalStyle'
-
 import Header from './Header';
-import SEO from './seo'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHome }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,9 +24,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <GlobalStyle/>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} isHome={isHome}/>
       <main>{children}</main>
       <footer>© {new Date().getFullYear()}, Mateusz Konopka</footer>
     </>
@@ -37,6 +34,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  isHome: PropTypes.bool
+};
+
+Layout.defaultProps = {
+  isHome: false
 };
 
 export default Layout;

@@ -19,7 +19,7 @@ const StyledLink = styled(Link)`
 
   &:after {
     content: '';
-    background-color: rgba(0,0,0,0.25);
+    background-color: rgba(0,0,0,0.3);
     position: absolute;
     top: 0;
     left: 0;
@@ -49,7 +49,7 @@ const StyledTextContainer = styled.div`
   z-index: 1;
   
   &:hover > h2 {
-    opacity: 0.25;
+    opacity: 0.2;
   }
 `;
 
@@ -70,7 +70,7 @@ const StyledImage = styled(Img)`
 
 const Pictures = ({ data }) => {
   const images = data.allWordpressPost.edges.map(post => (
-    <ImageContainer>
+    <ImageContainer key={post.node.slug}>
       <StyledLink to={`/picture/${post.node.slug}`}>
         <StyledImage
           sizes={post.node.featured_media.localFile.childImageSharp.sizes}

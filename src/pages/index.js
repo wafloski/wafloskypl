@@ -7,16 +7,19 @@ import HomeTemplate from '../templates/HomeTemplate';
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <HomeTemplate data={data}/>
-    </Layout>
+      <Layout isHome>
+        <HomeTemplate data={data}/>
+      </Layout>
+    </>
   );
 };
 
 IndexPage.propTypes = {
   data: PropTypes.objectOf(PropTypes.object).isRequired,
 };
+
 
 export default IndexPage;
 
