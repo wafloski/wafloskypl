@@ -1,18 +1,31 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const BlogPostTemplate = ({ data }) => (
   <Layout>
-    <SEO title={data.wordpressPost.title} description={data.wordpressPost.excerpt} />
-    <Img sizes={data.wordpressPost.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressPost.title} style={{ maxHeight: 900 }} />
+    <SEO
+      title={data.wordpressPost.title}
+      description={data.wordpressPost.excerpt}
+    />
+    <Img
+      sizes={data.wordpressPost.featured_media.localFile.childImageSharp.sizes}
+      alt={data.wordpressPost.title}
+      style={{ maxHeight: 900 }}
+    />
     <h1>{data.wordpressPost.title}</h1>
   </Layout>
-)
+);
 
-export default BlogPostTemplate
+BlogPostTemplate.propTypes = {
+    data: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
+export default BlogPostTemplate;
+
 export const query = graphql`
   query($id: Int!) {
     wordpressPost(wordpress_id: { eq: $id }) {

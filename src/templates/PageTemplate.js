@@ -1,7 +1,8 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout.js";
-import SEO from "../components/seo";
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const PageTemplate = ({ data }) => (
   <Layout>
@@ -13,6 +14,11 @@ const PageTemplate = ({ data }) => (
     <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
   </Layout>
 );
+
+PageTemplate.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
 export default PageTemplate;
 
 export const query = graphql`

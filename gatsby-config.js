@@ -28,11 +28,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         // I have created a dummy site for us to use with the plugins we discussed
-        baseUrl: "www.wafloski.nazwa.pl/waflosky-pl/",
-        protocol: "http",
+        baseUrl: 'www.wafloski.nazwa.pl/waflosky-pl/',
+        protocol: 'http',
         hostingWPCOM: false,
         // We will be using some advanced custom fields
         useACF: true,
@@ -40,23 +40,23 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://www.wafloski.nazwa.pl/waflosky-pl/",
-          replacementUrl: "https://localhost:8000",
+          sourceUrl: 'http://www.wafloski.nazwa.pl/waflosky-pl/',
+          replacementUrl: 'https://localhost:8000',
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
         includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users"
+          '**/categories',
+          '**/posts',
+          '**/pages',
+          '**/media',
+          '**/tags',
+          '**/taxonomies',
+          '**/users',
         ],
         excludedRoutes: [],
-        normalizer: function({ entities }) {
-          return entities
+        normalizer({ entities }) {
+          return entities;
         },
       },
     },
@@ -66,4 +66,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

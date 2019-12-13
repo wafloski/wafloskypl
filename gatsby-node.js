@@ -1,9 +1,8 @@
 const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const BlogPostTemplate = path.resolve("./src/templates/BlogPost.js");
-  const PageTemplate = path.resolve("./src/templates/PageTemplate.js");
+  const BlogPostTemplate = path.resolve('./src/templates/BlogPost.js');
+  const PageTemplate = path.resolve('./src/templates/PageTemplate.js');
   const result = await graphql(`
     {
       allWordpressPost {
@@ -25,8 +24,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
   const BlogPosts = result.data.allWordpressPost.edges;
   BlogPosts.forEach(post => {
@@ -36,7 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         id: post.node.wordpress_id,
       },
-    })
+    });
     const Pages = result.data.allWordpressPage.edges;
     Pages.forEach(page => {
       createPage({
@@ -45,7 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           id: page.node.wordpress_id,
         },
-      })
-    })
+      });
+    });
   });
-}
+};
