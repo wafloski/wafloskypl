@@ -1,10 +1,12 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
+import MenuButton from './MenuButton';
 import EnterFSIcon from '../images/expand.svg';
 import ExitFSIcon from '../images/exit_fs.svg';
+import ReturnArrow from '../images/return_arrow.svg';
 
 const StyledHeader = styled.header`
   padding: 2rem 3rem;
@@ -22,17 +24,19 @@ const StyledHeader = styled.header`
 `;
 
 const StyledLink = styled(Link)`
-  
+
 `;
 
 const StyledPanel = styled.div`
-
+  display: flex;
+  align-items: center;
 `;
 
 const StyledFSButton = styled.button`
   position: relative;
   width: 3.2rem;
   height: 3.2rem;
+  padding: 2rem;
   background-image: ${({ isFullScreen }) => (isFullScreen ? `url(${ExitFSIcon})` : `url(${EnterFSIcon})`)};
   background-position: center center;
   background-repeat: no-repeat;
@@ -41,6 +45,28 @@ const StyledFSButton = styled.button`
   cursor: pointer;
   transition: .5s;
   outline: 0;
+  margin-right: 3rem;
+  
+  &:hover {
+    opacity: .8;
+  }
+`;
+
+const StyledReturnArrow = styled(Link)`
+  position: relative;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 2rem;
+  background-image: url(${ReturnArrow});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: .5s;
+  outline: 0;
+  margin-right: 3rem;
+  display: block;
   
   &:hover {
     opacity: .8;
@@ -50,11 +76,13 @@ const StyledFSButton = styled.button`
 const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
   return (
     <StyledHeader isHome={isHome} >
-      <StyledLink to="/">
+      <StyledLink to='/'>
         <Logo/>
       </StyledLink>
       <StyledPanel>
-        <StyledFSButton type='button' title='full screen' onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+        { !isHome && <StyledReturnArrow to='/' title='powrót'/> }
+        <StyledFSButton type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+        <MenuButton/>
       </StyledPanel>
     </StyledHeader>
   );
