@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     margin: 0;
   }
+  
+  .fullscreen-enabled {
+    overflow: auto;
+  }
 `;
 
 export default GlobalStyle;

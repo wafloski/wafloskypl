@@ -4,8 +4,8 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const StyledLogo = styled(Img)`
-  width: 200px;
-  height: 54px;
+  width: 150px;
+  height: 40px;
 `;
 
 /*
@@ -22,7 +22,7 @@ const StyledLogo = styled(Img)`
 const Logo = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo_waflosky.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "logo-waflosky.png" }) {
         childImageSharp {
           fluid(maxWidth: 450) {
             ...GatsbyImageSharpFluid

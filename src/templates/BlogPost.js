@@ -19,11 +19,12 @@ const StyledImage = styled(Img)`
 `;
 
 const StyledLink = styled(Link)`
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  display: block;
-  color: #fff;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 `;
 
 const BlogPostTemplate = ({ data }) => (
@@ -37,7 +38,7 @@ const BlogPostTemplate = ({ data }) => (
         fluid={data.wordpressPost.featured_media.localFile.childImageSharp.fluid}
         alt={data.wordpressPost.title}
       />
-      <StyledLink to="/">Back Home</StyledLink>
+      <StyledLink to="/" />
     </PageWrapper>
   </Layout>
 );
@@ -61,7 +62,7 @@ export const query = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            fluid(maxHeight: 900) {
+            fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid
             }
           }
