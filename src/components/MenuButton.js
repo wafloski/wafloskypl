@@ -58,12 +58,16 @@ const MenuButton = () => {
     setMenuOpened(!menuOpened);
   };
 
+  const simpleData = 'simple data';
+
   return (
-    <StyledMenuButton onClick={() => handleMenuButtonClick()}>
-      <MenuButtonBox>
-        <MenuButtonInner menuOpened={menuOpened}/>
-      </MenuButtonBox>
-    </StyledMenuButton>
+    <MenuContext.Provider value={simpleData}>
+      <StyledMenuButton onClick={() => handleMenuButtonClick()}>
+        <MenuButtonBox>
+          <MenuButtonInner menuOpened={menuOpened}/>
+        </MenuButtonBox>
+      </StyledMenuButton>
+    </MenuContext.Provider>
   )
 };
 

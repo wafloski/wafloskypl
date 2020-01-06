@@ -2,7 +2,6 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import MenuContext from '../contexts/MenuContext';
 import Logo from './Logo';
 import MenuButton from './MenuButton';
 import NavigationMenu from './NavigationMenu'
@@ -85,10 +84,8 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
         <StyledPanel>
           { !isHome && <StyledReturnArrow to='/' title='powrót'/> }
           <StyledFSButton type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
-          <MenuContext.Provider value={menuOpened}>
-            <MenuButton/>
-            <NavigationMenu/>
-          </MenuContext.Provider>
+          <MenuButton/>
+          <NavigationMenu/>
         </StyledPanel>
       </StyledHeader>
     </>
