@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import MenuContext from '../contexts/MenuContext';
 
 const StyledMenuButton = styled.button`
   padding: 1rem;
