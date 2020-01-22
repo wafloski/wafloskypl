@@ -9,6 +9,11 @@ import EnterFSIcon from '../images/expand.svg';
 import ExitFSIcon from '../images/exit_fs.svg';
 import ReturnArrow from '../images/return_arrow.svg';
 
+const texts = {
+  exitFullScreen: 'wyjdź z trybu pełnoekranowego',
+  enterFullScreen: 'włącz tryb pełnoekranowy'
+}
+
 const StyledHeader = styled.header`
   padding: 2rem 3rem;
   display: flex;
@@ -88,7 +93,7 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
       </StyledLink>
       <StyledPanel>
         { !isHome && <StyledReturnArrow menuOpened={menuOpened} to='/' title='powrót'/> }
-        <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+        <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? texts.exitFullScreen : texts.enterFullScreen } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
         <MenuButton menuOpened={menuOpened} menuToggle={menuToggle}/>
         <NavigationMenu menuOpened={menuOpened}/>
       </StyledPanel>
