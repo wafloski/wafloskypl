@@ -82,19 +82,17 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
   const menuToggle = (isMenuOpened) => setMenuOpened(isMenuOpened);
 
   return (
-    <>
-      <StyledHeader isHome={isHome} >
-        <StyledLink to='/'>
-          <Logo/>
-        </StyledLink>
-        <StyledPanel>
-          { !isHome && <StyledReturnArrow menuOpened={menuOpened} to='/' title='powrót'/> }
-          <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
-          <MenuButton menuOpened={menuOpened} menuToggle={menuToggle}/>
-          <NavigationMenu menuOpened={menuOpened}/>
-        </StyledPanel>
-      </StyledHeader>
-    </>
+    <StyledHeader isHome={isHome} >
+      <StyledLink to='/'>
+        <Logo/>
+      </StyledLink>
+      <StyledPanel>
+        { !isHome && <StyledReturnArrow menuOpened={menuOpened} to='/' title='powrót'/> }
+        <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+        <MenuButton menuOpened={menuOpened} menuToggle={menuToggle}/>
+        <NavigationMenu menuOpened={menuOpened}/>
+      </StyledPanel>
+    </StyledHeader>
   );
 };
 

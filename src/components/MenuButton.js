@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
 const StyledMenuButton = styled.button`
-  position: absolute;
+  position: ${({ menuOpened }) => menuOpened ? 'fixed' : 'absolute'};
   padding: 1rem;
   display: inline-block;
   cursor: pointer;
-  background-color: ${({ menuOpened }) => menuOpened ? 'transparent' : 'transparent'};
+  background-color: transparent;
   border: 0;
   margin: 0;
   transition: all .3s .1s ease-in-out;
