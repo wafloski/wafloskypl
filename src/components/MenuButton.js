@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import MenuContext from '../contexts/MenuContext';
+import PropTypes from 'prop-types'
 
 const StyledMenuButton = styled.button`
+  position: absolute;
   padding: 1rem;
   display: inline-block;
   cursor: pointer;
-  background-color: transparent;
+  background-color: ${({ menuOpened }) => menuOpened ? 'transparent' : 'transparent'};
   border: 0;
   margin: 0;
-  transition: transform .3s .1s ease-in-out;
+  transition: all .3s .1s ease-in-out;
+  transform: ${({ menuOpened }) => menuOpened ? 'translateX(-230px)' : 'translateX(0px)'};
   outline: 0;
+  right: 4rem;
 `;
 
 const MenuButtonBox = styled.span`
@@ -51,24 +54,26 @@ const MenuButtonInner = styled.span`
   }
 `;
 
-const MenuButton = () => {
-  const [ menuOpened, setMenuOpened ] = useState(false);
+const MenuButton = ({ menuToggle, menuOpened }) => {
 
   const handleMenuButtonClick = () => {
-    setMenuOpened(!menuOpened);
+    menuToggle(!menuOpened);
   };
 
-  const simpleData = 'simple data';
-
   return (
-    <MenuContext.Provider value={simpleData}>
-      <StyledMenuButton onClick={() => handleMenuButtonClick()}>
+    <>
+      <StyledMenuButton menuOpened={menuOpened} onClick={handleMenuButtonClick}>
         <MenuButtonBox>
           <MenuButtonInner menuOpened={menuOpened}/>
         </MenuButtonBox>
       </StyledMenuButton>
-    </MenuContext.Provider>
+    </>
   )
+};
+
+MenuButton.propTypes = {
+  menuOpened: PropTypes.bool.isRequired,
+  menuToggle: PropTypes.func.isRequired,
 };
 
 export default MenuButton;

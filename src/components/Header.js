@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
 import MenuButton from './MenuButton';
-import NavigationMenu from './NavigationMenu'
+import NavigationMenu from './NavigationMenu';
 import EnterFSIcon from '../images/expand.svg';
 import ExitFSIcon from '../images/exit_fs.svg';
 import ReturnArrow from '../images/return_arrow.svg';
@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
   background-color: rgba(255, 255, 255, 0.1);
   width: 100%;
   position: ${({ isHome }) => (isHome ? 'relative' : 'fixed')};
-  z-index: 1;
+  z-index: 2;
   transition: .25s;
   justify-content: space-between;
   
@@ -25,12 +25,12 @@ const StyledHeader = styled.header`
 `;
 
 const StyledLink = styled(Link)`
-
 `;
 
 const StyledPanel = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const StyledFSButton = styled.button`
@@ -46,7 +46,8 @@ const StyledFSButton = styled.button`
   cursor: pointer;
   transition: .5s;
   outline: 0;
-  margin-right: 3rem;
+  margin-right: 10rem;
+  opacity: ${({ menuOpened }) => menuOpened &&  0 };
   
   &:hover {
     opacity: .8;
@@ -66,8 +67,9 @@ const StyledReturnArrow = styled(Link)`
   cursor: pointer;
   transition: .5s;
   outline: 0;
-  margin-right: 3rem;
+  margin-right: 4rem;
   display: block;
+  opacity: ${({ menuOpened }) => menuOpened &&  0 };
   
   &:hover {
     opacity: .8;
@@ -75,6 +77,10 @@ const StyledReturnArrow = styled(Link)`
 `;
 
 const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
+
+  const [ menuOpened, setMenuOpened ] = useState(false);
+  const menuToggle = (isMenuOpened) => setMenuOpened(isMenuOpened);
+
   return (
     <>
       <StyledHeader isHome={isHome} >
@@ -82,10 +88,10 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
           <Logo/>
         </StyledLink>
         <StyledPanel>
-          { !isHome && <StyledReturnArrow to='/' title='powrót'/> }
-          <StyledFSButton type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
-          <MenuButton/>
-          <NavigationMenu/>
+          { !isHome && <StyledReturnArrow menuOpened={menuOpened} to='/' title='powrót'/> }
+          <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? 'wyjdź z trybu pełnoekranowego' : 'włącz tryb pełnoekranowy' } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+          <MenuButton menuOpened={menuOpened} menuToggle={menuToggle}/>
+          <NavigationMenu menuOpened={menuOpened}/>
         </StyledPanel>
       </StyledHeader>
     </>
@@ -95,7 +101,7 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
 Header.propTypes = {
   isHome: PropTypes.bool,
   isFullScreen: PropTypes.bool,
-  toggleFullScreen: PropTypes.func.isRequired
+  toggleFullScreen: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {

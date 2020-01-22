@@ -33,7 +33,6 @@ const Layout = ({ children, isHome }) => {
 
   const ESCkeyExit = ({ key }) => {
     if (ESCAPE_KEYS.includes(String(key)) && isFullScreen) {
-      console.log("dupa");
       setFullScreen(false);
     }
   }
