@@ -7,7 +7,6 @@
 
 import React, { useState } from 'react'
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import useEventListener from '@use-it/event-listener';
 import Fullscreen from 'react-full-screen';
 import GlobalStyle from '../theme/GlobalStyle';
@@ -17,15 +16,6 @@ import Footer from './Footer';
 const ESCAPE_KEYS = ['27', 'Escape'];
 
 const Layout = ({ children, isHome }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
 
   const [ isFullScreen, setFullScreen ] = useState(false);
 
@@ -45,7 +35,7 @@ const Layout = ({ children, isHome }) => {
         enabled={isFullScreen}
       >
         <GlobalStyle/>
-        <Header siteTitle={data.site.siteMetadata.title} isHome={isHome} isFullScreen={isFullScreen} toggleFullScreen={fullScreenToggler}/>
+        <Header isHome={isHome} isFullScreen={isFullScreen} toggleFullScreen={fullScreenToggler}/>
         <main>{children}</main>
         <Footer/>
       </Fullscreen>

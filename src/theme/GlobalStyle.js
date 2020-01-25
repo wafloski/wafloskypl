@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
   .fullscreen-enabled {
     overflow: auto;
   }
+  
+  p {
+    margin: 0;
+  }
 `;
 
 export default GlobalStyle;

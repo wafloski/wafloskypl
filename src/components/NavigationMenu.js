@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import MainMenu from './MainMenu'
 
 const menuWidth = '250px';
 
@@ -23,18 +24,11 @@ const NavigationList = styled.ul`
   list-style: none;
 `;
 
-const NavigationItem = styled.li`
-  margin-bottom: 50px;
-`;
-
 const NavigationMenu = ({ menuOpened }) => {
   return (
     <NavigationContainer menuOpened={menuOpened}>
       <NavigationList>
-        <NavigationItem>dupa</NavigationItem>
-        <NavigationItem>cyc</NavigationItem>
-        <NavigationItem>koń</NavigationItem>
-        <NavigationItem>arbuz</NavigationItem>
+        <MainMenu/>
       </NavigationList>
     </NavigationContainer>
   )

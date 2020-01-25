@@ -7,6 +7,7 @@ const ImagesWrapper = styled.div`
   padding: 0;
   column-count: 3;
   column-gap: 0.1rem;
+  background-color: #000;
 `;
 
 const HomeTemplate = ({ data }) => {

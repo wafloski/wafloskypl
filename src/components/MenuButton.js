@@ -17,7 +17,7 @@ const StyledMenuButton = styled.button`
 `;
 
 const MenuButtonBox = styled.span`
-  width: 3.6rem;
+  width: 4rem;
   height: 2.4rem;
   display: inline-block;
   position: relative;
@@ -25,7 +25,7 @@ const MenuButtonBox = styled.span`
 
 const MenuButtonInner = styled.span`
   width: 100%;
-  height: 0.3rem;
+  height: 0.4rem;
   background-color: ${({ menuOpened }) => menuOpened ? 'transparent' : '#000'};
   position: absolute;
   left: 0;
@@ -35,7 +35,7 @@ const MenuButtonInner = styled.span`
   
   &::before, &::after {
     width: 100%;
-    height: 0.3rem;
+    height: 0.4rem;
     background-color: #000;
     position: absolute;
     content: '';
@@ -44,13 +44,13 @@ const MenuButtonInner = styled.span`
   }
   
   &::before {
-    top: -10px;
-    transform: ${({ menuOpened }) => menuOpened ? 'translateY(10px) rotate(45deg)' : ''};
+    top: -12px;
+    transform: ${({ menuOpened }) => menuOpened ? 'translateY(12px) rotate(45deg)' : ''};
   }
   
   &::after {
-    top: 10px;
-    transform: ${({ menuOpened }) => menuOpened ? 'translateY(-10px) rotate(-45deg)' : ''};
+    top: 12px;
+    transform: ${({ menuOpened }) => menuOpened ? 'translateY(-12px) rotate(-45deg)' : ''};
   }
 `;
 

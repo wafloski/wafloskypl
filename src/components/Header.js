@@ -17,15 +17,17 @@ const texts = {
 const StyledHeader = styled.header`
   padding: 2rem 3rem;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, .1);
   width: 100%;
   position: ${({ isHome }) => (isHome ? 'relative' : 'fixed')};
   z-index: 2;
   transition: .25s;
   justify-content: space-between;
+  opacity: ${({ isHome }) => (isHome ? 1 : .2 )};
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, .8);
+    opacity: 1;
   }
 `;
 
