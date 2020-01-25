@@ -10,7 +10,7 @@ const ImagesWrapper = styled.div`
   column-gap: 0.1rem;
   background-color: #000;
   border-top: 1px solid #000;
-  @media ( ${device.mobile} ) {
+  @media ( ${device.tablet} ) {
     column-count: 2;
   }
   @media ( ${device.laptop} ) {
