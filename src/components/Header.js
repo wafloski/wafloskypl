@@ -83,7 +83,7 @@ const StyledReturnArrow = styled(Link)`
   }
 `;
 
-const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
+const Header = ({ isHome, isPage, isFullScreen, toggleFullScreen }) => {
 
   const [ menuOpened, setMenuOpened ] = useState(false);
   const menuToggle = (isMenuOpened) => setMenuOpened(isMenuOpened);
@@ -95,7 +95,7 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
       </StyledLink>
       <StyledPanel>
         { !isHome && <StyledReturnArrow menuOpened={menuOpened} to='/' title='powrót'/> }
-        <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? texts.exitFullScreen : texts.enterFullScreen } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/>
+        { !isPage && <StyledFSButton menuOpened={menuOpened} type='button' title={ isFullScreen ? texts.exitFullScreen : texts.enterFullScreen } onClick={() => toggleFullScreen(!isFullScreen)} isFullScreen={isFullScreen}/> }
         <MenuButton menuOpened={menuOpened} menuToggle={menuToggle}/>
         <NavigationMenu menuOpened={menuOpened}/>
       </StyledPanel>
@@ -105,12 +105,14 @@ const Header = ({ isHome, isFullScreen, toggleFullScreen }) => {
 
 Header.propTypes = {
   isHome: PropTypes.bool,
+  isPage: PropTypes.bool,
   isFullScreen: PropTypes.bool,
   toggleFullScreen: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
   isHome: false,
+  isPage: false,
   isFullScreen: false
 };
 

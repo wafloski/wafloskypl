@@ -10,13 +10,11 @@ const ImagesWrapper = styled.div`
   background-color: #000;
 `;
 
-const HomeTemplate = ({ data }) => {
-  return (
-    <ImagesWrapper>
-      <Pictures data={data} />
-    </ImagesWrapper>
-  );
-};
+const HomeTemplate = ({ data }) => (
+  <ImagesWrapper>
+    <Pictures data={data} />
+  </ImagesWrapper>
+)
 
 HomeTemplate.propTypes = {
   data: PropTypes.objectOf(PropTypes.object).isRequired,

@@ -15,7 +15,7 @@ import Footer from './Footer';
 
 const ESCAPE_KEYS = ['27', 'Escape'];
 
-const Layout = ({ children, isHome }) => {
+const Layout = ({ children, isHome, isPage }) => {
 
   const [ isFullScreen, setFullScreen ] = useState(false);
 
@@ -35,7 +35,7 @@ const Layout = ({ children, isHome }) => {
         enabled={isFullScreen}
       >
         <GlobalStyle/>
-        <Header isHome={isHome} isFullScreen={isFullScreen} toggleFullScreen={fullScreenToggler}/>
+        <Header isHome={isHome} isPage={isPage} isFullScreen={isFullScreen} toggleFullScreen={fullScreenToggler}/>
         {children}
         <Footer/>
       </Fullscreen>
@@ -45,11 +45,13 @@ const Layout = ({ children, isHome }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  isHome: PropTypes.bool
+  isHome: PropTypes.bool,
+  isPage: PropTypes.bool
 };
 
 Layout.defaultProps = {
-  isHome: false
+  isHome: false,
+  isPage: false
 };
 
 export default Layout;

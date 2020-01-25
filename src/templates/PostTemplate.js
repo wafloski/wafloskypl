@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
@@ -18,16 +18,7 @@ const StyledImage = styled(Img)`
   justify-content: center;
 `;
 
-const StyledLink = styled(Link)`
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-`;
-
-const BlogPostTemplate = ({ data }) => (
+const PostTemplate = ({ data }) => (
   <Layout>
     <SEO
       title={data.wordpressPost.title}
@@ -38,16 +29,15 @@ const BlogPostTemplate = ({ data }) => (
         fluid={data.wordpressPost.featured_media.localFile.childImageSharp.fluid}
         alt={data.wordpressPost.title}
       />
-      <StyledLink to="/" />
     </PageWrapper>
   </Layout>
 );
 
-BlogPostTemplate.propTypes = {
+PostTemplate.propTypes = {
   data: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
-export default BlogPostTemplate;
+export default PostTemplate;
 
 export const query = graphql`
   query($id: Int!) {

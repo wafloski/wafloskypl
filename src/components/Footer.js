@@ -9,6 +9,7 @@ import Logo from '../images/logo-waflosky.png';
 const StyledFooter = styled.footer`
   width: 100%;
   background-color: #fff;
+  border-top: 1px solid #eee;
 `;
 
 const StyledFooterRow = styled.div`
