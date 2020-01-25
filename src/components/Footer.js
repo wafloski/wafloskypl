@@ -5,6 +5,7 @@ import MainMenu from './MainMenu'
 import FBicon from '../images/fb.png';
 import Instaicon from '../images/insta.png';
 import Logo from '../images/logo-waflosky.png';
+import { device } from '../theme/Breakpoints';
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -15,13 +16,23 @@ const StyledFooter = styled.footer`
 const StyledFooterRow = styled.div`
   display: flex;
   align-items: center;
-  padding: 3rem 0;
+  padding: 4rem 0 3rem;
+  flex-direction: column;
+  @media ( ${device.tablet} ) {
+    flex-direction: row;
+  }
 `;
 
 const StyledFooterCol = styled.div`
-  width: 33.3333%;
-  padding: 0 3rem;
+  width: 100%;
+  padding: 0 1.6rem;
   display: flex;
+  margin-bottom: 2rem;
+  @media ( ${device.tablet} ) {
+    width: 33.3333%;
+    margin-bottom: 0;
+    padding: 0 3rem;
+  }
 `;
 
 const StyledFooterLogo = styled(Link)`

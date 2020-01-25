@@ -2,16 +2,21 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { device } from '../theme/Breakpoints';
 
 const StyledMenuContainer = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: ${({type}) => type === 'footer' ? 'row' : 'column' };
+  flex-wrap: wrap;
   li {
-    margin-right: ${({type}) => type === 'footer' && '4rem' };
-    margin-bottom: ${({type}) => type === 'footer' ? 0 : '4rem' };
-    font-size: 2rem;
+    margin-right: ${({type}) => type === 'footer' && '2rem' };
+    margin-bottom: ${({type}) => type === 'footer' ? '1rem' : '4rem' };
+    font-size: 1.6rem;
+    @media ( ${device.tablet} ) {
+      font-size: 2rem;
+    }
   }
 `
 
