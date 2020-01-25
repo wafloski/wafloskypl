@@ -60,8 +60,8 @@ const Footer = () => (
         <MainMenu type='footer'/>
       </StyledFooterCol>
       <StyledFooterCol>
-        <StyledSocialLink to='https://www.instagram.com/ksiaze_waflitto/'><img alt='Waflosky Facebook' src={FBicon}/></StyledSocialLink>
-        <StyledSocialLink to='https://www.instagram.com/ksiaze_waflitto/'><img alt='Waflosky Instagram' src={Instaicon}/></StyledSocialLink>
+        <StyledSocialLink to='/'><img alt='Waflosky Facebook' src={FBicon}/></StyledSocialLink>
+        <StyledSocialLink to='/'><img alt='Waflosky Instagram' src={Instaicon}/></StyledSocialLink>
       </StyledFooterCol>
     </StyledFooterRow>
     <StyledCopyright>© {new Date().getFullYear()} waflosky.pl</StyledCopyright>

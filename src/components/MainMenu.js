@@ -10,7 +10,7 @@ const StyledMenuContainer = styled.ul`
   flex-direction: ${({type}) => type === 'footer' ? 'row' : 'column' };
   li {
     margin-right: ${({type}) => type === 'footer' && '4rem' };
-    margin-bottom: ${({type}) => type === 'footer' ? 0 : '4rem' }
+    margin-bottom: ${({type}) => type === 'footer' ? 0 : '4rem' };
     font-size: 2rem;
   }
 `

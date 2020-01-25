@@ -31,12 +31,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        // I have created a dummy site for us to use with the plugins we discussed
         baseUrl: 'www.wafloski.nazwa.pl/waflosky-pl/',
         protocol: 'http',
         hostingWPCOM: false,
-        // We will be using some advanced custom fields
-        useACF: true,
+        useACF: false,
         acfOptionPageIds: [],
         verboseOutput: false,
         perPage: 100,
@@ -44,7 +42,6 @@ module.exports = {
           sourceUrl: 'http://www.wafloski.nazwa.pl/waflosky-pl/',
           replacementUrl: 'https://localhost:8000',
         },
-        // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
         includedRoutes: [
           '**/categories',
@@ -63,6 +60,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

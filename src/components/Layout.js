@@ -36,7 +36,7 @@ const Layout = ({ children, isHome }) => {
       >
         <GlobalStyle/>
         <Header isHome={isHome} isFullScreen={isFullScreen} toggleFullScreen={fullScreenToggler}/>
-        <main>{children}</main>
+        {children}
         <Footer/>
       </Fullscreen>
     </>
