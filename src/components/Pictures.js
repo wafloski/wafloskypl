@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import { device } from '../theme/Breakpoints';
 
 const ImageContainer = styled.div`
   position: relative;
@@ -58,10 +59,16 @@ const StyledTitleText = styled.h2`
   width: 100%;
   text-align: center;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.4rem;
   transition: .25s;
-  padding: 1rem 2rem 0;
+  padding: 1rem 2rem 0.6rem;
   text-shadow: 1px 1px 0 #000;
+  @media ( ${device.tablet} ) {
+    font-size: 1.6rem;
+  }
+  @media ( ${device.laptop} ) {
+    font-size: 1.8rem;
+  }
 `;
 
 const StyledImage = styled(Img)`
