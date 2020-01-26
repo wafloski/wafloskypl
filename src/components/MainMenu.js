@@ -14,6 +14,7 @@ const StyledMenuContainer = styled.ul`
     margin-right: ${({type}) => type === 'footer' && '2rem' };
     margin-bottom: ${({type}) => type === 'footer' ? '1rem' : '4rem' };
     font-size: 1.6rem;
+    text-align: right;
     @media ( ${device.tablet} ) {
       font-size: 2rem;
     }

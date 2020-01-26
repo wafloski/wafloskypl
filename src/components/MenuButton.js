@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { device } from '../theme/Breakpoints';
 
 const StyledMenuButton = styled.button`
   position: ${({ menuOpened }) => menuOpened ? 'fixed' : 'absolute'};
@@ -11,9 +12,13 @@ const StyledMenuButton = styled.button`
   border: 0;
   margin: 0;
   transition: all .3s .1s ease-in-out;
-  transform: ${({ menuOpened }) => menuOpened ? 'translateX(-230px)' : 'translateX(0px)'};
   outline: 0;
-  right: 4rem;
+  right: 2rem;
+  z-index: 1;
+  
+  @media ( ${device.tablet} ) {
+    right: 4rem;
+  }
 `;
 
 const MenuButtonBox = styled.span`

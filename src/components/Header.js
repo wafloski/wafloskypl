@@ -8,6 +8,7 @@ import NavigationMenu from './NavigationMenu';
 import EnterFSIcon from '../images/expand.svg';
 import ExitFSIcon from '../images/exit_fs.svg';
 import ReturnArrow from '../images/return_arrow.svg';
+import { device } from '../theme/Breakpoints';
 
 const texts = {
   exitFullScreen: 'wyjdź z trybu pełnoekranowego',
@@ -15,7 +16,7 @@ const texts = {
 }
 
 const StyledHeader = styled.header`
-  padding: 2rem 3rem;
+  padding: 2rem 1.6rem;
   display: flex;
   background-color: rgba(255, 255, 255, .1);
   width: 100%;
@@ -24,6 +25,10 @@ const StyledHeader = styled.header`
   transition: .25s;
   justify-content: space-between;
   opacity: ${({ isHome }) => (isHome ? 1 : .2 )};
+  
+  @media ( ${device.tablet} ) {
+    padding: 2rem 3rem;
+  }
   
   &:hover {
     background-color: rgba(255, 255, 255, .8);
@@ -55,6 +60,11 @@ const StyledFSButton = styled.button`
   outline: 0;
   margin-right: 10rem;
   opacity: ${({ menuOpened }) => menuOpened &&  0 };
+  display: none;
+  
+  @media ( ${device.tablet} ) {
+    display: block;
+  }
   
   &:hover {
     opacity: .8;

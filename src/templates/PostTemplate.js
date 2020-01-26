@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Layout from '../components/Layout';
+import { device } from '../theme/Breakpoints';
 
 const PageWrapper = styled.div`
   position: relative;
@@ -14,8 +15,12 @@ const PageWrapper = styled.div`
 const StyledImage = styled(Img)`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: auto;
   justify-content: center;
+  
+  @media ( ${device.tablet} ) {
+    height: 100vh;
+  }
 `;
 
 const PostTemplate = ({ data }) => (

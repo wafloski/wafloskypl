@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import MainMenu from './MainMenu'
+import MainMenu from './MainMenu';
+import { device } from '../theme/Breakpoints';
 
 const menuWidth = '250px';
 
@@ -19,9 +20,12 @@ const NavigationContainer = styled.div`
   box-shadow: -1px 0 10px 2px rgba(0,0,0,0.5);
 `;
 
-const NavigationList = styled.ul`
-  margin-top: 50px;
-  list-style: none;
+const NavigationList = styled.div`
+  margin: 10rem 4rem 0;
+  
+  @media ( ${device.tablet} ) {
+    margin: 10rem 5rem 0;
+  }
 `;
 
 const NavigationMenu = ({ menuOpened }) => {

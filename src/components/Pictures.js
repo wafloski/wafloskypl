@@ -10,6 +10,10 @@ const ImageContainer = styled.div`
   break-inside: avoid;
   page-break-inside: avoid;
   margin-bottom: 0.1rem;
+  height: 280px;
+  @media ( ${device.laptop} ) {
+    height: auto;
+  }
 `;
 
 const StyledLink = styled(Link)`
