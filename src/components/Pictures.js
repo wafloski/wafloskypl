@@ -82,7 +82,7 @@ const StyledImage = styled(Img)`
 const Pictures = ({ data }) => {
   const images = data.allWordpressPost.edges.map(post => (
     <ImageContainer key={post.node.slug}>
-      <StyledLink to={`/picture/${post.node.slug}`}>
+      <StyledLink to={`/${post.node.slug}`}>
         <StyledImage
           sizes={post.node.featured_media.localFile.childImageSharp.sizes}
           alt={post.node.title}
